@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Hello Test !</h1>
+
+    {#Un commentaire#}
+    {% set nom = "Oscar" %}
+    <h2>{{ nom | upper }}</h2>
+
+    {#créer un tableau#}
+    {% set colors = ['orange', 'blue', 'red', 'green', 'chartreuse'] %}
+
+    <div>Le tableau contient {{ colors | length }} couleurs : </div>
+
+    {% for color in colors %}
+        <div style="background-color: {{ color }}">{{ color }}</div>
+    {% else %}
+        <div>Le tableau de couleurs est vide</div>
+    {% endfor %}
+
+    {{ colors | join ('/') }}
+
+    {#créer un objet#}
+    {% set book = {
+        'titre': "Eragon",
+        'auteur': "Christopher Paolini",
+        'année': 2003
+    } %}
+
+    <h3>{{ book.titre | upper }}</h3>
+
+    <div>
+        {% for key, val in book %}
+            <div>{{ key }} : {{ val }}</div>
+        {% endfor %}
+    </div>
+
+    <p>Année actuelle : {{ 'now' | date('Y') }}</p>
+    <p>Date du jour : {{ 'now' | date('d/m/Y H:i') }}</p>
+    <p>Heure actuelle : {{ 'now' | date('H:i') }}</p>
+
+    <p> {{ serie.titre | raw}} - {{ serie.annee}} - {{ autreVar}} </p>
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} | Test
+{% endblock %}
+
+
+
