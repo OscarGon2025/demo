@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
-
     <link rel="icon" href="{{ asset('img/icon.png') }}">
 
     {% block stylesheets %}
@@ -20,6 +19,7 @@
     {% endblock %}
 
 </head>
+<body>
 <header>
     {% include '_navbar.html.twig' %}
 </header>
@@ -29,5 +29,5 @@
 <footer>
     {% include '_footer.html.twig' %}
 </footer>
-
+</body>
 </html>
